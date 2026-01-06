@@ -9,10 +9,6 @@ def get_clues(secret, guess): #is used to calculate how many cows and bulls ther
     cows = sum(g in secret for g in guess) - bulls
     return bulls, cows
 
-tries = 0
-tries_left = 7
-max_tries = 7 #the AI gets a maximum of seven tries to guess the number
-
 def tell_joke(): #jokes and dialogues from the AI to make the game feel more interactive
     jokes = [
         "Was that a bull or a cow? Either way, I’m counting on it!",
@@ -122,6 +118,9 @@ def game(): #main function that runs the game
     possible_numbers = all_numbers.copy()
     previous_guesses = []
     global tries, bulls, cows, tries_left, max_tries
+    tries = 0
+    tries_left = 7
+    max_tries = 7 #the AI gets a maximum of seven tries to guess the number
 
     while tries < max_tries:
         guess = random.choice(possible_numbers)
